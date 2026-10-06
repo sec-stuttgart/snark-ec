@@ -1,0 +1,25 @@
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": [1, 5, 10, 50, 100, 150, 200, 250, 300, 350, 400, 500, 600, 700]
+        },
+        "tmp_files_directory": "tmp_files/pvc/test/"
+    },
+    {
+        "results": {
+            "path": "results/commitment/BN254/groth16/"
+        }
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+]

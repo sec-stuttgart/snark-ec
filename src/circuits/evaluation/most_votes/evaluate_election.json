@@ -1,0 +1,40 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/evaluation/most_votes/evaluate_election.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_cand": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "tally": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+
+                    },
+                    "test_out": {
+                        "maps_to": "test_out",
+                        "among_copies": "shared"
+
+                    }
+                }
+            },
+            "circuit_wrapper_params": {},
+            "type": [
+                "evaluation",
+                "most_votes"
+            ]
+        }     
+    ]
+}

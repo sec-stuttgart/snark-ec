@@ -1,0 +1,27 @@
+[
+    {
+        "constants": {
+            "n_cand": [1, 5, 10, 35, 50, 100],
+            "bits_votes": 32,
+            "n_grades": 6
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/majority_judgement_median"
+        }
+    },
+    "circuits/evaluation/majority_judgment/evaluate_election_median.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+]

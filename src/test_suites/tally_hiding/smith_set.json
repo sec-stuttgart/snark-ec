@@ -1,0 +1,26 @@
+[
+    {
+        "constants": {
+            "n_cand": [4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+            "bits_votes": 32
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/smith_set"
+        }
+    },
+    "circuits/evaluation/smith_set/compute_smith_set.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+]

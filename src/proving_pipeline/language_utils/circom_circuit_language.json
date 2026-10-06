@@ -1,0 +1,10 @@
+{
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "module_name": "proving_pipeline.language_utils.circom_language_utils",
+        "class_name": "Circom_Language_Utils",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    }
+}

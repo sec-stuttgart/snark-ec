@@ -1,0 +1,11 @@
+{
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "module_name": "proving_pipeline.circuit_processors.circom_circuit_processor",
+        "class_name": "Circom_Circuit_Processor",
+        "params": {
+            "optimization": "--O2",
+            "prime": "bn128"
+        }
+    }
+}

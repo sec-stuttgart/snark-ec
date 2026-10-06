@@ -1,0 +1,152 @@
+{
+    "framework_version": "3.0 (SW, fixed PKs)",
+    "constants": {
+        "bits_votes": "32",
+        "n_votes": "200"
+    },
+    "input": {},
+    "results": {
+        "non_linear_constraints": "110201",
+        "linear_constraints": "0",
+        "total_constraints": "110201",
+        "crs_size[MB]": "137.872696",
+        "t_config_processing[ms]": "1.0094642639160156",
+        "t_circuit_creation[ms]": "2.263784408569336",
+        "t_constants_generation[ms]": "4849.97296333313",
+        "t_input_generation[ms]": "965.2540683746338",
+        "t_circuit_instantiation[ms]": "4.3277740478515625",
+        "t_r1cs_creation[ms]": "74975.30174255371",
+        "t_wtns_creation[ms]": "5134.934186935425",
+        "t_prover_setup[ms]": "340826.26152038574",
+        "t_prover_prove[ms]": "9879.567861557007",
+        "t_prover_verify[ms]": "1444.6258544921875"
+    },
+    "backend_prover": {
+        "name": "Snarkjs_Backend_Prover",
+        "file": "components/backend_provers/snarkjs_backend_prover.py",
+        "params": {
+            "snark": {
+                "name": "groth16",
+                "powers_of_tau": "scripts/ptau/powersOfTau28_hez_final___MAX__.ptau",
+                "contribution_randomness": "Totally random bitstring"
+            }
+        }
+    },
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "file": "components/circuit_processors/circom_circuit_processor.py",
+        "params": {
+            "optimization": "--O2"
+        }
+    },
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "file": "components/language_utils/circom_language_utils.py",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    },
+    "circuits": [
+        {
+            "template": "circuits/exp_elgamal/short_weierstrass
+            "precedence": "1",
+            "copies_shape": "(n_votes)",
+            "constants": {
+                "SW_a": {
+                    "maps_to": "SW_a",
+                    "among_copies": "shared"
+                },
+                "SW_b": {
+                    "maps_to": "SW_b",
+                    "among_copies": "shared"
+                },
+                "base_rand": {
+                    "maps_to": "base_rand",
+                    "among_copies": "shared"
+                },
+                "digits_rand": {
+                    "maps_to": "digits_rand",
+                    "among_copies": "shared"
+                },
+                "base_plain": {
+                    "maps_to": "base_plain",
+                    "among_copies": "shared"
+                },
+                "digits_plain": {
+                    "maps_to": "digits_votes",
+                    "among_copies": "shared"
+                },
+                "bits_plain": {
+                    "maps_to": "bits_votes",
+                    "among_copies": "shared"
+                },
+                "powers_of_g_plain": {
+                    "maps_to": "powers_of_g_plain",
+                    "among_copies": "shared"
+                },
+                "powers_of_g_rand": {
+                    "maps_to": "powers_of_g_rand",
+                    "among_copies": "shared"
+                },
+                "powers_of_pk_rand": {
+                    "maps_to": "powers_of_pk_rand",
+                    "among_copies": "shared"
+                }
+            },
+            "input": {
+                "v": {
+                    "maps_to": "ballot",
+                    "among_copies": "duplicated"
+                },
+                "v_indices": {
+                    "maps_to": "ballot_indices",
+                    "among_copies": "duplicated"
+                },
+                "r_indices": {
+                    "maps_to": "rand_indices",
+                    "among_copies": "duplicated"
+                },
+                "gr": {
+                    "maps_to": "ciphertext_0",
+                    "among_copies": "duplicated"
+                },
+                "gv_pkr": {
+                    "maps_to": "ciphertext_1",
+                    "among_copies": "duplicated"
+                }
+            },
+            "circuit_wrapper_params": {
+                "curve": {
+                    "name": "Curve25519",
+                    "form": "ShortWeierstrass",
+                    "SW_a": "7296080957279758407415468581752425029516121466805344781232734728853232254332",
+                    "SW_b": "1621351323839946312758993018167205562114693659290076618051718980123722470666",
+                    "base_field": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+                    "order": "21888242871839275222246405745257275088597270486034011716802747351550446453784",
+                    "cofactor": "8"
+                },
+                "base_plain": "5",
+                "base_rand": "16",
+                "bits_rand": "251"
+            }
+        },
+        {
+            "template": "circuits/voting/single/single_vote_voting.circom",
+            "precedence": "0",
+            "copies_shape": "(1)",
+            "constants": {
+                "n_votes": {
+                    "maps_to": "n_votes",
+                    "among_copies": "shared"
+                }
+            },
+            "input": {
+                "ballot": {
+                    "maps_to": "ballot",
+                    "among_copies": "shared"
+                }
+            },
+            "circuit_wrapper_params": {}
+        }
+    ]
+}

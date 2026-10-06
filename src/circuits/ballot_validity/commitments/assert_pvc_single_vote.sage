@@ -1,0 +1,143 @@
+from scripts.sageImport import sage_import
+from proving_pipeline.circuit_wrapper.circuit import Circuit
+from scripts.JSON import JSONUtils
+from utils.utils import Utils
+from proving_pipeline.circuit_wrapper.constants import Constants
+from proving_pipeline.circuit_wrapper.input import Input
+import json
+import random
+import numpy as np
+
+sage_import('utils/sage_utils', fromlist=['Sage_utils'])
+sage_import('math_utils/cryptography/commitment/pvc', fromlist=['Pvc'])
+
+
+class Assert_pvc_single_vote(Circuit):
+    def __init__(self, params=None):
+        super().__init__(config=params)
+        self.gen = None
+        self.pk = None
+        self.pvc = None
+
+    def generate_constants(self, existing_constants, index=None):
+        base_rand = self.params["base_rand"]
+        bits_rand = self.params["bits_rand"]
+        bits_votes = self.retrieve_global_data("constants", "bits_votes", existing_constants)
+
+        n_entries = self.retrieve_global_data("constants", "n_entries", existing_constants)
+        digits_rand = Sage_utils.compute_digits(bits_rand, base_rand)
+        num_slots_rand = Sage_utils.compute_slots(bits_rand, bits_votes)
+        num_gen_rand = Sage_utils.compute_gen(n_entries, num_slots_rand)
+
+        constants = existing_constants
+        constants["base_rand"] = base_rand
+        constants["digits_rand"] = digits_rand
+        constants["num_slots_rand"] = num_slots_rand
+        constants["num_gen_rand"] = num_gen_rand
+
+        curve_params = self.params["curve"]
+        constants["SW_a"] = curve_params["SW_a"]
+        constants["SW_b"] = curve_params["SW_b"]
+        curve_subgroup_order = Integer(curve_params["order"]) // Integer(curve_params["cofactor"])
+
+        self.pvc = Pvc(n_entries, curve_params)
+
+        self.g = self.pvc.gen
+        self.pk = self.pvc.h
+        g_plain = self.g
+        powers_of_pk_rand = self.pk.generate_optimized_powers_for_M_SW(base_rand, digits_rand)
+
+        constants["g_plain"] = Constants.array_to_constants_format(self.g)
+        constants["powers_of_pk_rand"] = Constants.array_to_constants_format(powers_of_pk_rand)
+        constants["g"] = Constants.array_to_constants_format(self.g)
+        constants["pk"] = Constants.array_to_constants_format(self.pk)
+
+        self.constants = constants
+        return constants
+
+    def pack_plain_vector(self, plain, base_plain, digits_plain, num_slots, num_gen):
+        """
+        Produces a vector of length num_gen.
+        Each entry is a packed window of size num_slots.
+        """
+        B = base_plain ** digits_plain
+        packed = [0] * num_gen
+
+        for g in range(num_gen):
+            acc = 0
+            start = g * num_slots
+
+            for i in range(num_slots):
+                idx = start + i
+                val = plain[idx] if idx < len(plain) else 0
+                acc += val * (B ** i)
+
+            packed[g] = acc
+
+        return packed
+
+    def generate_input(self, existing_input, constants, index=None):
+        base_rand = int(self.params["base_rand"])
+        digits_rand = int(self.retrieve_global_data("constants", "digits_rand", constants))
+        num_slots_rand = int(self.retrieve_global_data("constants", "num_slots_rand", constants))
+        num_gen_rand = int(self.retrieve_global_data("constants", "num_gen_rand", constants))
+
+        curve_params = self.params["curve"]
+        base_field = GF(curve_params["base_field"])
+        order = base_field(curve_params["order"])
+        cofactor = base_field(curve_params["cofactor"])
+        subgroup_order = order // cofactor
+
+        n_entries = int(self.retrieve_global_data("constants", "n_entries", constants))
+
+        input = {}
+
+        plain = None
+        try:
+            if index:
+                plain = np.array(self.retrieve_global_data("input", "v", existing_input))[tuple(index)]
+            else:
+                tmp = self.retrieve_global_data("input", "v", existing_input)
+                plain = [int(p) for p in tmp]
+        except Exception:
+            plain = [0 for _ in range(n_entries)]
+            pos_one_vote = random.randint(0, n_entries - 1)
+            plain[pos_one_vote] = 1
+
+        rand = random.randint(0, subgroup_order - 1)
+
+        rand_indices = Sage_utils.genBaseIndices(rand, digits_rand, base_rand)
+
+        packed = self.pack_plain_vector(
+            plain,
+            base_rand,
+            digits_rand,
+            num_slots_rand,
+            num_gen_rand,
+        )
+
+        values = [0] * n_entries
+        for i in range(min(num_gen_rand, n_entries)):
+            values[i] = packed[i]
+
+        commitment = self.pvc.commit(values, rand)[0]
+
+        input["r"] = rand
+        input["v"] = plain
+        input["r_indices"] = rand_indices
+        input["test_out"] = commitment.to_input_format()
+
+        self.input = input
+        return input
+
+    def serialize(self):
+        state = super().serialize()
+        if self.pvc:
+            state["params"]["pvc"] = self.pvc.serialize()
+        return state
+
+    def deserialize(self, state):
+        super().deserialize(state)
+        if state["params"].get("pvc"):
+            self.pvc = Pvc()
+            self.pvc.deserialize(state["params"]["pvc"])

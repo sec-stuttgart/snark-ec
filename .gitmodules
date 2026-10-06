@@ -1,0 +1,7 @@
+[submodule "libs/icicle-snark"]
+	path = libs/icicle-snark
+	url = https://github.com/ingonyama-zk/icicle-snark
+[submodule "snark-ec"]
+	path = snark-ec
+	url = https://git.sec.uni-stuttgart.de/scm/repo/evoting/snark-ec
+	branch = cleaned

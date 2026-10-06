@@ -1,0 +1,31 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/voting/single/single_vote_voting.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_votes": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "ballot": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+                    
+                    }
+                }
+            },
+            "params": {},
+            "type": [
+                "voting",
+                "single"
+            ]
+        }
+    ]
+}

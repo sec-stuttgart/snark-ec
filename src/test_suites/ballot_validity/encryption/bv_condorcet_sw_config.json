@@ -1,0 +1,26 @@
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_cand": [1, 5, 10, 15, 20, 25, 30, 35, 40, 45]
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/condorcet/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/condorcet"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/condorcet/condorcet_voting.json"
+]

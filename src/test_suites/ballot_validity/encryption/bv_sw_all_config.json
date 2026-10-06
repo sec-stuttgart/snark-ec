@@ -1,0 +1,569 @@
+[
+    [
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [1, 5, 10, 25, 50, 75, 100, 200, 400],
+            "points_for_ranked_worse": 2,
+            "points_for_ranked_same": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/BTS/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/BTS"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/borda_tournament_style_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_cand": [1, 5, 10, 20, 30, 40, 45]
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/condorcet/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/condorcet"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/condorcet/condorcet_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [1, 5, 10, 25, 50, 75, 100, 200, 400]
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/line_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/line"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/line_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_cand": [1, 5, 10, 25, 50, 75, 100, 150, 200],
+            "n_grades": 6
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [1, 5, 10, 25, 50, 75, 100, 200, 400],
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/multi_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/multi"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/multi_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [3, 5, 10, 25, 50, 75, 100, 200, 400],
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/MWR/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/MWR"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/multi_vote_with_rules_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [10, 25, 50, 75, 100, 200, 400],
+            "n_points": 10
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [1, 5, 10, 25, 50, 75, 100, 200, 400]
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/single/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/single"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/single/single_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 9,
+            "n_points": 9
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 25,
+            "n_points": 25
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 50,
+            "n_points": 50
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 100,
+            "n_points": 100
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 200,
+            "n_points": 200
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 400,
+            "n_points": 400
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/pointlist_borda"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 1,
+            "n_grades": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 5,
+            "n_grades": 5
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 10,
+            "n_grades": 10
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 20,
+            "n_grades": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 30,
+            "n_grades": 30
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 40,
+            "n_grades": 40
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 45,
+            "n_grades": 45
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+]
+]

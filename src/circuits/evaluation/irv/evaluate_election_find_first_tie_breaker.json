@@ -1,0 +1,57 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/evaluation/irv/evaluate_election_find_first_tie_breaker.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "nCand": {
+                        "maps_to": "nCand",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    },
+                    "nRounds": {
+                        "maps_to": "nRounds",
+                        "among_copies": "shared"
+                    },
+                    "nRankings": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "getCandRemovedPos": {
+                        "maps_to": "getCandRemovedPos",
+                        "among_copies": "shared"
+                    },
+                    "getFirstRankedPos": {
+                        "maps_to": "getFirstRankedPos",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "tally": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+                    
+                    },
+                    "test_out": {
+                        "maps_to": "test_out",
+                        "among_copies": "shared"
+                    
+                    }
+                }
+            },
+            "circuit_wrapper_params": {},
+            "type": [
+                "evaluation",
+                "irv",
+                "find_first_tie_breaker"
+            ]
+        }     
+    ]
+}

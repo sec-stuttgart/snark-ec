@@ -1,0 +1,28 @@
+[
+    {
+        "constants": {
+            "nCand": [2, 3, 4, 5, 6],
+            "bits_votes": 32,
+            "nRounds": 7,
+            "nVotes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/irv_find_first"
+        }
+    },
+    "circuits/evaluation/irv/evaluate_election_find_first_tie_breaker.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+]

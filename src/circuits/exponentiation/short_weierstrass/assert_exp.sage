@@ -1,0 +1,98 @@
+from scripts.sageImport import sage_import
+from proving_pipeline.circuit_wrapper.circuit import Circuit
+from scripts.JSON import JSONUtils
+from utils.utils import Utils
+from proving_pipeline.circuit_wrapper.constants import Constants
+from proving_pipeline.circuit_wrapper.input import Input
+import json
+import random 
+import numpy as np
+sage_import('utils/sage_utils', fromlist=['Sage_utils'])
+sage_import('math_utils/cryptography/encryption/asymmetric/exponential_elgamal', fromlist=['Exponential_Elgamal'])
+
+class Assert_exp(Circuit):
+    def __init__(self, params):
+        super().__init__(params)
+        self.g = None
+
+    def generate_constants(self, existing_constants, index=None):
+        base = self.retrieve_global_data("constants", "base", existing_constants)
+        bits = self.retrieve_global_data("constants", "bits", existing_constants)
+        digits = Sage_utils.compute_digits(bits, base)
+
+        constants = existing_constants
+        constants["base"] = base
+        constants["digits"] = digits
+        curve_params = self.params["curve"]
+        constants["SW_a"] = curve_params["SW_a"]
+        constants["SW_b"] = curve_params["SW_b"]
+        curve_subgroup_order = Integer(curve_params["order"])//Integer(curve_params["cofactor"])
+
+        referencePoint = Utils.create_class_reference_from_config(curve_params).getInfinity(curve_params)
+        self.g = referencePoint.getGenerator()
+
+        powers_of_g = self.g.generate_optimized_powers_for_M_SW(base, digits)
+
+        constants["powers_of_g"] = Constants.array_to_constants_format(powers_of_g)
+        constants["g"] = Constants.array_to_constants_format(self.g)
+
+        self.constants = constants
+        return constants
+    
+    def generate_input(self, existing_input, constants, index=None):
+        base = int(self.retrieve_global_data("constants", "base", constants))
+        digits= int(self.retrieve_global_data("constants", "digits", constants))
+        curve_params = self.params["curve"]
+        base_field = GF(curve_params["base_field"])
+        order = base_field(curve_params["order"])
+        cofactor = base_field(curve_params["cofactor"])
+        subgroup_order = order // cofactor
+        # print(f"Subgroup-order has {math.ceil(math.log(subgroup_order, 2))} bits.")
+
+        input = {}
+
+        plain=None
+        # print(f"Index: {index}, existing input: {existing_input}")
+        try:
+            if index:
+                plain = np.array(self.retrieve_global_data("input", "v", existing_input))[tuple(index)]
+            else:
+                plain = int(self.retrieve_global_data("input", "v", existing_input))
+        except:
+            # print("Could not retrieve existing plain value, choosing one at random.")
+            plain = random.randint(0, base**digits-1)
+            # plain = 1
+            # plain = 762316480
+
+        # TESTING:
+        # rand = 0
+        # plain = 0
+        # print(f"Index: {index}")
+        # print(f"Random value at index {index}: {rand}")
+        # rand = subgroup_order - 1
+        # print(f"EEG pubkey: \n\tg: {self.eeg.pub_key['g'].serialize()}\nh: {self.eeg.pub_key['h'].serialize()}")
+
+        plain_indices = Sage_utils.genBaseIndices(plain, digits, base)
+        # print(f"Plain: value {plain}") # indices {plain_indices}
+        # print(f"Rand: value {rand}") # indices {rand_indices}
+
+        res = plain * self.g
+
+        input["v"] = plain
+        input["v_indices"] = plain_indices
+        input["res"] = res.to_input_format()
+
+        self.input = input
+        return input
+
+    def serialize(self):
+        state = super().serialize()
+        if self.g:
+            state["params"]["g"] = self.g.serialize()
+        # print(f"EEG: {json.dumps(state, indent=4)}")
+        return state
+
+    def deserialize(self):
+        super().deserialize(state)
+        if state["params"].get("g"):
+            self.g = Utils.deserialize_from_state(state["params"]["g"])

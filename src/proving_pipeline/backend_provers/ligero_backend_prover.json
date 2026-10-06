@@ -1,0 +1,13 @@
+{
+    "backend_prover": {
+        "name": "Ligero_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.ligero_backend_prover",
+        "class_name": "Ligero_Backend_Prover",
+        "params": {
+            "prover_executable": "scripts/ligero/ligero_BN254",
+            "snark": {
+                "name": "ligero"
+            }
+        }
+    }
+}

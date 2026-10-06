@@ -1,0 +1,45 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/voting/borda/borda_tournament_style_voting.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_votes": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "a": {
+                        "maps_to": "points_for_ranked_worse",
+                        "among_copies": "shared"
+                    },
+                    "b": {
+                        "maps_to": "points_for_ranked_same",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "ballot": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+
+                    },
+                    "ranking": {
+                        "maps_to": "ranking",
+                        "among_copies": "shared"
+
+                    }
+                }
+            },
+            "params": {},
+            "type": [
+                "voting",
+                "borda",
+                "bts"            
+            ]
+        }     
+    ]
+}

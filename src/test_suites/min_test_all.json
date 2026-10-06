@@ -1,0 +1,655 @@
+[
+    [
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 1,
+            "points_for_ranked_worse": 2,
+            "points_for_ranked_same": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/BTS/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/BTS"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/borda/borda_tournament_style_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/condorcet/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/condorcet"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/condorcet/condorcet_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 2
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/irv/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/irv"
+        }
+    },
+    "circuits/ballot_validity/commitments/assert_pvc_single_vote.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/line_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/line"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/multi/line_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_cand": 1,
+            "n_grades": 6
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/majority_judgement"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 1,
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/multi_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/multi"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/multi/multi_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 3,
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/MWR/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/MWR"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/multi/multi_vote_with_rules_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 10,
+            "n_points": 10
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/pointlist_borda"
+        }
+    },
+    "circuits/pedersen_commitments/vector/assert_pvc.json",
+    "circuits/voting/borda/pointlist_borda_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 1
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/single/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/single"
+        }
+    },
+    "circuits/ballot_validity/commitments/assert_pvc_single_vote.json"
+],
+    [
+        {
+            "constants": {
+                "bits_votes": 32,
+                "n_entries": 1
+            },
+            "tmp_files_directory": "tmp_files/bv/eeg/line_vote/"
+        },
+        {
+            "config": {
+                "pipeline_steps": "default",
+                "input": "default",
+                "constants": "default",
+                "results_location": "default",
+                "prover": "snarkjs",
+                "circuit_processor": "circom",
+                "circuit_language": "circom"
+            }
+        },
+        "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+        "circuits/voting/multi/line_vote_voting.json"
+    ],
+    [
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 1,
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/multi_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/multi"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/multi_vote_voting.json"
+],
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": 3,
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/MWR/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/eeg/MWR"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/multi_vote_with_rules_voting.json"
+],
+    [
+        {
+            "constants": {
+                "bits_votes": 32,
+                "n_entries": 10,
+                "n_cand": 10,
+                "n_points": 10
+            },
+            "tmp_files_directory": "tmp_files/bv/eeg/pointlist_borda/"
+        },
+        {
+            "config": {
+                "pipeline_steps": "default",
+                "input": "default",
+                "constants": "default",
+                "results_location": "default",
+                "prover": "snarkjs",
+                "circuit_processor": "circom",
+                "circuit_language": "circom"
+            }
+        },
+        "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+        "circuits/voting/borda/pointlist_borda_voting.json"
+    ],
+    [
+        {
+            "constants": {
+                "bits_votes": 32,
+                "n_entries": 1,
+                "points_for_ranked_worse": 2,
+                "points_for_ranked_same": 1
+            },
+            "tmp_files_directory": "tmp_files/bv/eeg/bts/"
+        },
+        {
+            "config": {
+                "pipeline_steps": "default",
+                "input": "default",
+                "constants": "default",
+                "results_location": "default",
+                "prover": "snarkjs",
+                "circuit_processor": "circom",
+                "circuit_language": "circom"
+            }
+        },
+        "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+        "circuits/voting/borda/borda_tournament_style_voting.json"
+    ],
+    [
+        {
+            "constants": {
+                "bits_votes": 32,
+                "n_cand": 1,
+                "n_grades": 6
+            },
+            "tmp_files_directory": "tmp_files/bv/eeg/majority_judgement/"
+        },
+        {
+            "config": {
+                "pipeline_steps": "default",
+                "input": "default",
+                "constants": "default",
+                "results_location": "default",
+                "prover": "snarkjs",
+                "circuit_processor": "circom",
+                "circuit_language": "circom"
+            }
+        },
+        "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+        "circuits/voting/majority_judgement/majority_judgement_voting.json"
+    ],
+    [
+        {
+            "constants": {
+                "bits_votes": 32,
+                "n_cand": 1
+            },
+            "tmp_files_directory": "tmp_files/bv/eeg/condorcet/"
+        },
+        {
+            "config": {
+                "pipeline_steps": "default",
+                "input": "default",
+                "constants": "default",
+                "results_location": "default",
+                "prover": "snarkjs",
+                "circuit_processor": "circom",
+                "circuit_language": "circom"
+            }
+        },
+        "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+        "circuits/voting/condorcet/condorcet_voting.json"
+    ],
+    [
+    {
+        "constants": {
+            "n_entries": 1,
+            "bits_votes": 32,
+            "n_best": 5,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/best_n/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "nCand": 2,
+            "bits_votes": 32,
+            "nRounds": 7,
+            "nVotes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/irv/evaluate_election_find_first_tie_breaker.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "nCand": 2,
+            "bits_votes": 32,
+            "nRounds": 5,
+            "nVotes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/irv/evaluate_election_nsw_tie_breaker.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": 1,
+            "bits_votes": 32,
+            "n_grades": 6,
+            "n_votes": 1000
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/majority_judgment/evaluate_election_full.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": 1,
+            "bits_votes": 32,
+            "n_grades": 6
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/majority_judgment/evaluate_election_median.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": 1,
+            "bits_votes": 32,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/most_votes/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": 4,
+            "bits_votes": 32
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/smith_set/compute_smith_set.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": 1,
+            "bits_votes": 32,
+            "threshold": 5,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "results_location": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/evaluation/vote_threshold/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": 1,
+            "base": 5,
+            "bits": 32,
+            "assert_indices": 1
+        },
+        "tmp_files_directory": "tmp_files/exp/test/"
+    },
+    {
+        "results": {
+            "path": "results/exponentiation_indices/BN254/groth16/old"
+        }
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/exponentiation/short_weierstrass/assert_exp.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": 1,
+            "base": 5,
+            "bits": 32,
+            "assert_indices": 0
+        },
+        "tmp_files_directory": "tmp_files/exp/test/"
+    },
+    {
+        "results": {
+            "path": "results/exponentiation_indices/BN254/groth16/old"
+        }
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/exponentiation/short_weierstrass/assert_exp.json"
+]
+]

@@ -1,0 +1,51 @@
+from proving_pipeline.circuit_wrapper.circuit import Circuit
+import random
+
+class Pointlist_borda_voting(Circuit):
+    def __init__(self, params):
+        super().__init__(params)
+
+    def generate_random_ballot(self, n_cand, ordered_points):
+        votes = [0 for i in range(n_cand)]
+        indices = set([i for i in range(n_cand)])
+        # print(f"Indices: {indices}")
+        for points in ordered_points:
+            if len(indices) > 0:
+                index = random.choice(list(indices))
+                indices.remove(index)
+                votes[index] = points
+            self.votes = votes
+        return votes
+
+    def generate_constants(self, existing_constants):
+        constants = {}
+        n_points = existing_constants["n_points"]
+        ordered_points = [n_points - i for i in range(n_points)]
+        constants["ordered_points"] = ordered_points
+        # print(f"Ordered points: {ordered_points}")
+        self.constants = constants
+        # print(f"Constants {constants}")
+        # print(f"Self Constants {self.constants}")
+        return constants
+    
+    def generate_input(self, existing_input, constants):
+        input = {}
+        n_cand = int(self.retrieve_global_data("constants", "n_cand", constants))
+        n_points = int(self.retrieve_global_data("constants", "n_points", constants))
+        ordered_points = self.retrieve_global_data("constants", "ordered_points", constants)
+        ballot = self.generate_random_ballot(n_cand, ordered_points)
+        input["ballot"] = ballot
+        self.input = input
+
+        return input
+
+    def serialize(self):
+        state = super().serialize()
+        if self.votes:
+            state["params"]["votes"] = self.votes
+        return state
+
+    def deserialize(self, state):
+        super().deserialize(state)
+        if state["params"].get("votes"):
+            self.votes = [int(vote) for vote in state["params"]["votes"]]

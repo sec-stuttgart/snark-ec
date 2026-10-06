@@ -1,0 +1,15 @@
+{
+    "backend_prover": {
+        "name": "Icicle_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.icicle_snark_backend_prover",
+        "class_name": "Icicle_Backend_Prover",
+        "params": {
+            "snark": {
+                "name": "groth16",
+                "powers_of_tau": "scripts/ptau/powersOfTau28_hez_final___MAX__.ptau",
+                "contribution_randomness": "Totally random bitstring"
+            },
+            "device": "CPU"
+        }
+    }
+}

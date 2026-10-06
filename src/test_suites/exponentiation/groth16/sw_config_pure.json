@@ -1,0 +1,27 @@
+[
+    {
+        "constants": {
+            "n_entries": 100,
+            "base": [5, 8, 12, 16, 20, 24, 28, 32],
+            "bits": [32, 251],
+            "assert_indices": 0
+        },
+        "tmp_files_directory": "tmp_files/exp/test/"
+    },
+    {
+        "results": {
+            "path": "results/exponentiation/BN254/groth16/old"
+        }
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/exponentiation/short_weierstrass/assert_exp.json"
+]

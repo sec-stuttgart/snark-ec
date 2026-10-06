@@ -1,0 +1,25 @@
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [2, 5, 16, 65, 326, 1975]
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/irv/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/irv"
+        }
+    },
+    "circuits/ballot_validity/commitments/assert_pvc_single_vote.json"
+]

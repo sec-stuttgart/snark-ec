@@ -1,0 +1,155 @@
+{
+    "constants": {
+        "base": "3",
+        "bits": "16",
+        "assert_indices": "1"
+    },
+    "tmp_files_directory": "tmp_files/exp/test/",
+    "results": {
+        "path": "results/exponentiation_indices/BN254/groth16/",
+        "t_config_processing[ms]": "0.9944438934326172",
+        "t_circuit_creation[ms]": "1.1620521545410156",
+        "t_constants_generation[ms]": "1009.7136497497559",
+        "t_circuit_instantiation[ms]": "0.3883838653564453",
+        "t_r1cs_creation[ms]": "110.53586006164551",
+        "t_prover_setup[ms]": "1831.2537670135498",
+        "t_input_generation[ms]": "1.6002655029296875",
+        "t_wtns_creation[ms]": "139.87326622009277",
+        "t_prover_prove[ms]": "782.9508781433105",
+        "t_prover_verify[ms]": "1664.1054153442383",
+        "non_linear_constraints": "78",
+        "linear_constraints": "0",
+        "total_constraints": "78",
+        "crs_size[MB]": "0.048612"
+    },
+    "config": {
+        "pipeline_steps": "default",
+        "input": "default",
+        "constants": "default",
+        "prover": "snarkjs",
+        "circuit_processor": "circom",
+        "circuit_language": "circom"
+    },
+    "circuits": [
+        {
+            "template": "circuits/exponentiation/short_weierstrass/assert_exp.circom",
+            "precedence": "1",
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "SW_a": {
+                        "maps_to": "SW_a",
+                        "among_copies": "shared"
+                    },
+                    "SW_b": {
+                        "maps_to": "SW_b",
+                        "among_copies": "shared"
+                    },
+                    "base": {
+                        "maps_to": "base",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits",
+                        "among_copies": "shared"
+                    },
+                    "digits": {
+                        "maps_to": "digits",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_g": {
+                        "maps_to": "powers_of_g",
+                        "among_copies": "shared"
+                    },
+                    "assert_indices": {
+                        "maps_to": "assert_indices",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "v": {
+                        "maps_to": "v",
+                        "among_copies": "duplicated"
+                    },
+                    "v_indices": {
+                        "maps_to": "v_indices",
+                        "among_copies": "duplicated"
+                    },
+                    "res": {
+                        "maps_to": "res",
+                        "among_copies": "duplicated"
+                    }
+                }
+            },
+            "params": {
+                "curve": {
+                    "name": "Curve25519",
+                    "form": "ShortWeierstrass",
+                    "module_name": "math_utils.elliptic_curves.ShortWeierstrass",
+                    "class_name": "ShortWeierstrassPoint",
+                    "SW_a": "7296080957279758407415468581752425029516121466805344781232734728853232254332",
+                    "SW_b": "1621351323839946312758993018167205562114693659290076618051718980123722470666",
+                    "base_field": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+                    "order": "21888242871839275222246405745257275088597270486034011716802747351550446453784",
+                    "cofactor": "8"
+                }
+            },
+            "type": "exponentiation"
+        }
+    ],
+    "pipeline_steps": {
+        "merge_meta_config": "True",
+        "merge_templates": "True",
+        "generate_constants": "True",
+        "instantiate_circuit": "True",
+        "generate_r1cs": "True",
+        "setup_prover": "True",
+        "generate_input": "True",
+        "create_wtns": "True",
+        "prove": "True",
+        "verify": "True",
+        "save_results": "True",
+        "delete_tmp_files": "True"
+    },
+    "input": {},
+    "backend_prover": {
+        "name": "Snarkjs_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.snarkjs_backend_prover",
+        "class_name": "Snarkjs_Backend_Prover",
+        "params": {
+            "snark": {
+                "name": "groth16",
+                "powers_of_tau": "scripts/ptau/powersOfTau28_hez_final___MAX__.ptau",
+                "contribution_randomness": "Totally random bitstring"
+            }
+        }
+    },
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "module_name": "proving_pipeline.circuit_processors.circom_circuit_processor",
+        "class_name": "Circom_Circuit_Processor",
+        "params": {
+            "optimization": "--O2",
+            "prime": "bn128"
+        }
+    },
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "module_name": "proving_pipeline.language_utils.circom_language_utils",
+        "class_name": "Circom_Language_Utils",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    },
+    "merged_circuit": "MERGED_Assert_exp.circom",
+    "generated_constants_file": "generated_constants.json",
+    "instantiated_circuit": "MERGED_Assert_exp_instantiated.circom",
+    "r1cs": "MERGED_Assert_exp_instantiated.r1cs",
+    "prover_setup": "MERGED_Assert_exp_instantiated.zkey",
+    "generated_input_file": "generated_input.json",
+    "wtns": "MERGED_Assert_exp_instantiated.wtns",
+    "proof": "MERGED_Assert_exp_instantiated_proof.json",
+    "instance": "MERGED_Assert_exp_instantiated_public.json"
+}

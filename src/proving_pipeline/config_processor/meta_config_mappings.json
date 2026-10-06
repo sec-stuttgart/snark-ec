@@ -1,0 +1,39 @@
+{
+    "pipeline_steps": {
+        "default": "config/pipeline_steps/default.json",
+        "voting_authority_pregeneration": "config/pipeline_steps/voting_authority_pregeneration.json",
+        "voter_voting": "config/pipeline_steps/voter_voting.json",
+        "only_prover_setup": "config/pipeline_steps/only_prover_setup.json"
+    },
+    "input": {
+        "default": "config/input/default.json"
+    },
+    "constants": {
+        "default": "config/constants/default.json"
+    },
+    "results_location": {
+        "default": "config/results_location/default.json",
+        "v1.0": "",
+        "v1.1": "",
+        "v2.0": "",
+        "v2.1": "",
+        "v3.0": ""
+    },
+    "prover": {
+        "default": "proving_pipeline/backend_provers/snarkjs_backend_prover.json",
+        "snarkjs": "proving_pipeline/backend_provers/snarkjs_backend_prover.json",
+        "icicle": "proving_pipeline/backend_provers/icicle_backend_prover.json",
+        "ligero": "proving_pipeline/backend_provers/ligero_backend_prover.json"
+    },
+    "circuit_language": {
+        "default": "proving_pipeline/language_utils/circom_circuit_language.json",
+        "circom": "proving_pipeline/language_utils/circom_circuit_language.json"
+    },
+    "circuit_processor": {
+        "default": "proving_pipeline/circuit_processors/circom_circuit_processor.json",
+        "circom": "proving_pipeline/circuit_processors/circom_circuit_processor.json"
+    },
+    "circuits": {
+        "default": ""
+    }
+}

@@ -1,0 +1,27 @@
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_cand": [1, 5, 10, 25, 50, 75, 100, 150, 200],
+            "n_grades": 6
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/majority_judgment/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/majority_judgement"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/majority_judgement/majority_judgement_voting.json"
+]

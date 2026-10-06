@@ -1,0 +1,39 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/voting/borda/pointlist_borda_voting.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_cand": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "n_points": {
+                        "maps_to": "n_points",
+                        "among_copies": "shared"
+                    },
+                    "ordered_points": {
+                        "maps_to": "ordered_points",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "ballot": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+                    }
+                }
+            },
+            "params": {},
+            "type": [
+                "voting",
+                "borda",
+                "pointlist_borda"
+            ]
+        }
+    ]
+}

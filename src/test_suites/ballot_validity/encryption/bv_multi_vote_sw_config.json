@@ -1,0 +1,28 @@
+[
+    {
+        "constants": {
+            "bits_votes": [32],
+            "n_entries": [1, 5, 10, 25, 50, 75, 100, 200, 400],
+            "max_votes_per_candidate": 5,
+            "max_choices": 20
+        },
+        "tmp_files_directory": "tmp_files/bv/eeg/multi_vote/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/ballot_validity/pvc/multi"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json",
+    "circuits/voting/multi/multi_vote_voting.json"
+]

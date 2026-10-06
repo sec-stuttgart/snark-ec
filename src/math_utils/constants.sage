@@ -1,0 +1,3 @@
+import math
+
+PLAINTEXT_LIMIT = 1000

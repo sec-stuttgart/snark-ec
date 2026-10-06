@@ -1,0 +1,25 @@
+[
+    {
+        "constants": {
+            "bits_votes": 32,
+            "n_entries": [1, 5, 10, 50, 100, 150, 200, 250, 300, 350, 400]
+        },
+        "tmp_files_directory": "tmp_files/enc/eeg/test/"
+    },
+    {
+        "results": {
+            "path": "results/encryption/BN254/groth16/"
+        }
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal_vector.json"
+]

@@ -1,0 +1,222 @@
+[
+    [
+    {
+        "constants": {
+            "n_entries": [1, 5, 10, 25, 50, 100, 200, 400, 600],
+            "bits_votes": 32,
+            "n_best": 5,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/best_n"
+        }
+    },
+    "circuits/evaluation/best_n/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "nCand": [2, 3, 4, 5, 6],
+            "bits_votes": 32,
+            "nRounds": 7,
+            "nVotes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/irv_find_first"
+        }
+    },
+    "circuits/evaluation/irv/evaluate_election_find_first_tie_breaker.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "nCand": [2, 3, 4, 5, 6],
+            "bits_votes": 32,
+            "nRounds": 5,
+            "nVotes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/irv_nsw"
+        }
+    },
+    "circuits/evaluation/irv/evaluate_election_nsw_tie_breaker.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": [1, 5, 10, 35, 50, 100, 200, 400, 600],
+            "bits_votes": 32,
+            "n_grades": 6,
+            "n_votes": 1000
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/majority_judgement_full"
+        }
+    },
+    "circuits/evaluation/majority_judgment/evaluate_election_full.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": [1, 5, 10, 35, 50, 100],
+            "bits_votes": 32,
+            "n_grades": 6
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/majority_judgement_median"
+        }
+    },
+    "circuits/evaluation/majority_judgment/evaluate_election_median.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": [1, 5, 10, 25, 50, 100, 200, 400, 600],
+            "bits_votes": 32,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/most_votes"
+        }
+    },
+    "circuits/evaluation/most_votes/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_cand": [4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+            "bits_votes": 32
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/smith_set"
+        }
+    },
+    "circuits/evaluation/smith_set/compute_smith_set.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+],
+[
+    {
+        "constants": {
+            "n_entries": [1, 5, 10, 25, 50, 100, 200, 400, 600],
+            "bits_votes": 32,
+            "threshold": 5,
+            "n_votes": 100
+        },
+        "tmp_files_directory": "test/test3/"
+    },
+    {
+        "config": {
+            "pipeline_steps": "default",
+            "input": "default",
+            "constants": "default",
+            "prover": "snarkjs",
+            "circuit_processor": "circom",
+            "circuit_language": "circom"
+        }
+    },
+    {
+        "results": {
+            "path": "results/tally_hiding/vote_threshold"
+        }
+    },
+    "circuits/evaluation/vote_threshold/evaluate_election.json",
+    "circuits/pedersen_commitments/vector/assert_pvc.json"
+]
+]

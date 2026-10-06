@@ -1,0 +1,49 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/evaluation/majority_judgment/evaluate_election_median.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_cand": {
+                        "maps_to": "n_cand",
+                        "among_copies": "shared"
+                    },
+                    "n_grades": {
+                        "maps_to": "n_grades",
+                        "among_copies": "shared"
+                    },
+                    "n_cand_times_n_grades": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "linear_tally": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+                    
+                    },
+                    "test_out": {
+                        "maps_to": "test_out",
+                        "among_copies": "shared"
+                    
+                    }
+                }
+            },
+            "circuit_wrapper_params": {},
+            "type": [
+                "evaluation",
+                "majority_judgement",
+                "median_evaluation"
+            ]
+        }     
+    ]
+}

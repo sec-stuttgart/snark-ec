@@ -1,0 +1,16 @@
+{
+    "pipeline_steps": {
+        "merge_meta_config": false,
+        "merge_templates": false,
+        "generate_constants": false,
+        "instantiate_circuit": false,
+        "generate_r1cs": false,
+        "setup_prover": true,
+        "generate_input": false,
+        "create_wtns": false,
+        "prove": false,
+        "verify": false,
+        "save_results": false,
+        "delete_tmp_files": false
+    }
+}

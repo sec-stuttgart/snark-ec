@@ -1,0 +1,175 @@
+{
+    "constants": {
+        "bits_votes": "32",
+        "n_votes": "1"
+    },
+    "tmp_files_directory": "tmp_files/enc/eeg/test/",
+    "results": {
+        "path": "results/encryption/Grumpkin/ligero/",
+        "t_config_processing[ms]": "0.7638931274414062",
+        "t_circuit_creation[ms]": "1.4426708221435547",
+        "t_constants_generation[ms]": "2269.0353393554688",
+        "t_circuit_instantiation[ms]": "3.579854965209961",
+        "t_r1cs_creation[ms]": "1013.2389068603516",
+        "t_prover_setup[ms]": "0.008821487426757812",
+        "t_input_generation[ms]": "12.62664794921875",
+        "t_wtns_creation[ms]": "237.23745346069336",
+        "t_prover_prove[ms]": "76.9555",
+        "t_prover_verify[ms]": "51.259699999999995",
+        "non_linear_constraints": "556",
+        "linear_constraints": "0",
+        "total_constraints": "556"
+    },
+    "config": {
+        "pipeline_steps": "default",
+        "input": "default",
+        "constants": "default",
+        "prover": "ligero",
+        "circuit_processor": "circom",
+        "circuit_language": "circom"
+    },
+    "circuits": [
+        {
+            "template": "circuits/exp_elgamal/short_weierstrass/assert_exp_elgamal.circom",
+            "precedence": "1",
+            "copies_shape": "(n_votes)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "SW_a": {
+                        "maps_to": "SW_a",
+                        "among_copies": "shared"
+                    },
+                    "SW_b": {
+                        "maps_to": "SW_b",
+                        "among_copies": "shared"
+                    },
+                    "base_rand": {
+                        "maps_to": "base_rand",
+                        "among_copies": "shared"
+                    },
+                    "digits_rand": {
+                        "maps_to": "digits_rand",
+                        "among_copies": "shared"
+                    },
+                    "base_plain": {
+                        "maps_to": "base_plain",
+                        "among_copies": "shared"
+                    },
+                    "digits_plain": {
+                        "maps_to": "digits_votes",
+                        "among_copies": "shared"
+                    },
+                    "bits_plain": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_g_plain": {
+                        "maps_to": "powers_of_g_plain",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_g_rand": {
+                        "maps_to": "powers_of_g_rand",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_pk_rand": {
+                        "maps_to": "powers_of_pk_rand",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "v": {
+                        "maps_to": "ballot",
+                        "among_copies": "duplicated"
+                    },
+                    "v_indices": {
+                        "maps_to": "ballot_indices",
+                        "among_copies": "duplicated"
+                    },
+                    "r_indices": {
+                        "maps_to": "rand_indices",
+                        "among_copies": "duplicated"
+                    },
+                    "gr": {
+                        "maps_to": "ciphertext_0",
+                        "among_copies": "duplicated"
+                    },
+                    "gv_pkr": {
+                        "maps_to": "ciphertext_1",
+                        "among_copies": "duplicated"
+                    }
+                }
+            },
+            "params": {
+                "curve": {
+                    "name": "Grumpkin",
+                    "form": "ShortWeierstrass",
+                    "module_name": "math_utils.elliptic_curves.ShortWeierstrass",
+                    "class_name": "ShortWeierstrassPoint",
+                    "SW_a": "0",
+                    "SW_b": "21888242871839275222246405745257275088548364400416034343698204186575808495600",
+                    "base_field": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+                    "order": "21888242871839275222246405745257275088696311157297823662689037894645226208583",
+                    "cofactor": "1"
+                },
+                "base_plain": "5",
+                "base_rand": "16",
+                "bits_rand": "254"
+            },
+            "type": "encryption"
+        }
+    ],
+    "pipeline_steps": {
+        "merge_meta_config": "True",
+        "merge_templates": "True",
+        "generate_constants": "True",
+        "instantiate_circuit": "True",
+        "generate_r1cs": "True",
+        "setup_prover": "True",
+        "generate_input": "True",
+        "create_wtns": "True",
+        "prove": "True",
+        "verify": "True",
+        "save_results": "True",
+        "delete_tmp_files": "True"
+    },
+    "input": {},
+    "backend_prover": {
+        "name": "Ligero_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.ligero_backend_prover",
+        "class_name": "Ligero_Backend_Prover",
+        "params": {
+            "prover_executable": "scripts/ligero/ligero_BN254",
+            "snark": {
+                "name": "ligero"
+            }
+        }
+    },
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "module_name": "proving_pipeline.circuit_processors.circom_circuit_processor",
+        "class_name": "Circom_Circuit_Processor",
+        "params": {
+            "optimization": "--O2",
+            "prime": "bn128"
+        }
+    },
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "module_name": "proving_pipeline.language_utils.circom_language_utils",
+        "class_name": "Circom_Language_Utils",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    },
+    "merged_circuit": "MERGED_Assert_exp_elgamal.circom",
+    "generated_constants_file": "generated_constants.json",
+    "instantiated_circuit": "MERGED_Assert_exp_elgamal_instantiated.circom",
+    "r1cs": "MERGED_Assert_exp_elgamal_instantiated.r1cs",
+    "prover_setup": "ligero_transparent_crs",
+    "generated_input_file": "generated_input.json",
+    "wtns": "MERGED_Assert_exp_elgamal_instantiated.wtns",
+    "proof": "MERGED_Assert_exp_elgamal_instantiated_dummy_proof.json",
+    "instance": "MERGED_Assert_exp_elgamal_instantiated_dummy_public.json"
+}

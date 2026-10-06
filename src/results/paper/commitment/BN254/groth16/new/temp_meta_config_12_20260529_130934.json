@@ -1,0 +1,182 @@
+{
+    "framework_version": "3.0 (SW, fixed PKs)",
+    "constants": {
+        "bits_votes": "32",
+        "n_entries": "600"
+    },
+    "tmp_files_directory": "tmp_files/pvc/test/",
+    "results": {
+        "path": "results/commitment/BN254/groth16/new",
+        "t_config_processing[ms]": "0.7038116455078125",
+        "t_circuit_creation[ms]": "1.5799999237060547",
+        "t_constants_generation[ms]": "16087.322473526001",
+        "t_circuit_instantiation[ms]": "74.93090629577637",
+        "t_r1cs_creation[ms]": "25911.848306655884",
+        "t_prover_setup[ms]": "80333.82153511047",
+        "t_input_generation[ms]": "384.5651149749756",
+        "t_wtns_creation[ms]": "5957.475900650024",
+        "t_prover_prove[ms]": "3724.8830795288086",
+        "t_prover_verify[ms]": "1484.9345684051514",
+        "non_linear_constraints": "53781",
+        "linear_constraints": "0",
+        "total_constraints": "53781",
+        "crs_size[MB]": "38.327812"
+    },
+    "config": {
+        "pipeline_steps": "default",
+        "input": "default",
+        "constants": "default",
+        "prover": "snarkjs",
+        "circuit_processor": "circom",
+        "circuit_language": "circom"
+    },
+    "circuits": [
+        {
+            "template": "circuits/pedersen_commitments/vector/assert_pvc.circom",
+            "precedence": "1",
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_entries": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "SW_a": {
+                        "maps_to": "SW_a",
+                        "among_copies": "shared"
+                    },
+                    "SW_b": {
+                        "maps_to": "SW_b",
+                        "among_copies": "shared"
+                    },
+                    "base_rand": {
+                        "maps_to": "base_rand",
+                        "among_copies": "shared"
+                    },
+                    "digits_rand": {
+                        "maps_to": "digits_rand",
+                        "among_copies": "shared"
+                    },
+                    "base_plain": {
+                        "maps_to": "base_plain",
+                        "among_copies": "shared"
+                    },
+                    "digits_plain": {
+                        "maps_to": "digits_votes",
+                        "among_copies": "shared"
+                    },
+                    "bits_plain": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    },
+                    "num_slots_plain": {
+                        "maps_to": "num_slots_plain",
+                        "among_copies": "shared"
+                    },
+                    "num_gen_plain": {
+                        "maps_to": "num_gen_plain",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_g_plain": {
+                        "maps_to": "powers_of_g_plain",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_pk_rand": {
+                        "maps_to": "powers_of_pk_rand",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "v": {
+                        "maps_to": "ballot",
+                        "among_copies": "shared"
+                    },
+                    "v_indices": {
+                        "maps_to": "ballot_indices",
+                        "among_copies": "shared"
+                    },
+                    "r_indices": {
+                        "maps_to": "rand_indices",
+                        "among_copies": "shared"
+                    },
+                    "test_out": {
+                        "maps_to": "commitment",
+                        "among_copies": "shared"
+                    }
+                }
+            },
+            "params": {
+                "curve": {
+                    "name": "Curve25519",
+                    "form": "ShortWeierstrass",
+                    "module_name": "math_utils.elliptic_curves.ShortWeierstrass",
+                    "class_name": "ShortWeierstrassPoint",
+                    "SW_a": "7296080957279758407415468581752425029516121466805344781232734728853232254332",
+                    "SW_b": "1621351323839946312758993018167205562114693659290076618051718980123722470666",
+                    "base_field": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+                    "order": "21888242871839275222246405745257275088597270486034011716802747351550446453784",
+                    "cofactor": "8"
+                },
+                "base_plain": "5",
+                "base_rand": "16",
+                "bits_rand": "251"
+            },
+            "type": "commitment"
+        }
+    ],
+    "pipeline_steps": {
+        "merge_meta_config": "True",
+        "merge_templates": "True",
+        "generate_constants": "True",
+        "instantiate_circuit": "True",
+        "generate_r1cs": "True",
+        "setup_prover": "True",
+        "generate_input": "True",
+        "create_wtns": "True",
+        "prove": "True",
+        "verify": "True",
+        "save_results": "True",
+        "delete_tmp_files": "True"
+    },
+    "input": {},
+    "backend_prover": {
+        "name": "Snarkjs_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.snarkjs_backend_prover",
+        "class_name": "Snarkjs_Backend_Prover",
+        "params": {
+            "snark": {
+                "name": "groth16",
+                "powers_of_tau": "scripts/ptau/powersOfTau28_hez_final_21.ptau",
+                "contribution_randomness": "Totally random bitstring"
+            }
+        }
+    },
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "module_name": "proving_pipeline.circuit_processors.circom_circuit_processor",
+        "class_name": "Circom_Circuit_Processor",
+        "params": {
+            "optimization": "--O2",
+            "prime": "bn128"
+        }
+    },
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "module_name": "proving_pipeline.language_utils.circom_language_utils",
+        "class_name": "Circom_Language_Utils",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    },
+    "merged_circuit": "MERGED_Assert_pvc.circom",
+    "generated_constants_file": "generated_constants.json",
+    "instantiated_circuit": "MERGED_Assert_pvc_instantiated.circom",
+    "r1cs": "MERGED_Assert_pvc_instantiated.r1cs",
+    "prover_setup": "MERGED_Assert_pvc_instantiated.zkey",
+    "generated_input_file": "generated_input.json",
+    "wtns": "MERGED_Assert_pvc_instantiated.wtns",
+    "proof": "MERGED_Assert_pvc_instantiated_proof.json",
+    "instance": "MERGED_Assert_pvc_instantiated_public.json"
+}

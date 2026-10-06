@@ -1,0 +1,44 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/evaluation/smith_set/compute_smith_set.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n": {
+                        "maps_to": "n_cand",
+                        "among_copies": "shared"
+                    },
+                    "n_squared": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "linear_tally": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+
+                    },
+                    "test_out": {
+                        "maps_to": "test_out",
+                        "among_copies": "shared"
+
+                    }
+                }
+            },
+            "circuit_wrapper_params": {},
+            "type": [
+                "evaluation",
+                "smith_set"
+            ]
+        }     
+    ]
+}

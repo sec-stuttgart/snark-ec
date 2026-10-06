@@ -1,0 +1,160 @@
+{
+    "constants": {
+        "entries": "100",
+        "base": "28",
+        "bits": "251",
+        "assert_indices": "0"
+    },
+    "tmp_files_directory": "tmp_files/exp/test/",
+    "results": {
+        "path": "results/exponentiation/BLS12381/groth16/old",
+        "t_config_processing[ms]": "0.9248256683349609",
+        "t_circuit_creation[ms]": "1.140594482421875",
+        "t_constants_generation[ms]": "2034.7092151641846",
+        "t_circuit_instantiation[ms]": "2.621889114379883",
+        "t_r1cs_creation[ms]": "29170.757055282593",
+        "t_prover_setup[ms]": "252209.7635269165",
+        "t_input_generation[ms]": "317.2726631164551",
+        "t_wtns_creation[ms]": "1802.5870323181152",
+        "t_prover_prove[ms]": "5293.753147125244",
+        "t_prover_verify[ms]": "1937.9265308380127",
+        "non_linear_constraints": "17100",
+        "linear_constraints": "0",
+        "total_constraints": "17100",
+        "crs_size[MB]": "88.606396"
+    },
+    "config": {
+        "pipeline_steps": "default",
+        "input": "default",
+        "constants": "default",
+        "prover": "snarkjs",
+        "circuit_processor": "circom",
+        "circuit_language": "circom"
+    },
+    "circuits": [
+        {
+            "template": "circuits/exponentiation/short_weierstrass/assert_exp.circom",
+            "precedence": "1",
+            "copies_shape": "(entries)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "SW_a": {
+                        "maps_to": "SW_a",
+                        "among_copies": "shared"
+                    },
+                    "SW_b": {
+                        "maps_to": "SW_b",
+                        "among_copies": "shared"
+                    },
+                    "base": {
+                        "maps_to": "base",
+                        "among_copies": "shared"
+                    },
+                    "bits": {
+                        "maps_to": "bits",
+                        "among_copies": "shared"
+                    },
+                    "digits": {
+                        "maps_to": "digits",
+                        "among_copies": "shared"
+                    },
+                    "powers_of_g": {
+                        "maps_to": "powers_of_g",
+                        "among_copies": "shared"
+                    },
+                    "assert_indices": {
+                        "maps_to": "assert_indices",
+                        "among_copies": "shared"
+                    },
+                    "entries": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "v": {
+                        "maps_to": "v",
+                        "among_copies": "duplicated"
+                    },
+                    "v_indices": {
+                        "maps_to": "v_indices",
+                        "among_copies": "duplicated"
+                    },
+                    "res": {
+                        "maps_to": "res",
+                        "among_copies": "duplicated"
+                    }
+                }
+            },
+            "params": {
+                "curve": {
+                    "name": "Bandersnatch",
+                    "form": "ShortWeierstrass",
+                    "module_name": "math_utils.elliptic_curves.ShortWeierstrass",
+                    "class_name": "ShortWeierstrassPoint",
+                    "SW_a": "52435875175126190479447740508185965837690552500527637822603658699934817984513",
+                    "SW_b": "52435875175126190479447740508185965837690552500527637822603658621262613184513",
+                    "base_field": "52435875175126190479447740508185965837690552500527637822603658699938581184513",
+                    "order": "52435875175126190479447740508185965837236623573762281007145613226918750691204",
+                    "cofactor": "4"
+                }
+            },
+            "type": "exponentiation"
+        }
+    ],
+    "pipeline_steps": {
+        "merge_meta_config": "True",
+        "merge_templates": "True",
+        "generate_constants": "True",
+        "instantiate_circuit": "True",
+        "generate_r1cs": "True",
+        "setup_prover": "True",
+        "generate_input": "True",
+        "create_wtns": "True",
+        "prove": "True",
+        "verify": "True",
+        "save_results": "True",
+        "delete_tmp_files": "True"
+    },
+    "input": {},
+    "backend_prover": {
+        "name": "Snarkjs_Backend_Prover",
+        "module_name": "proving_pipeline.backend_provers.snarkjs_backend_prover",
+        "class_name": "Snarkjs_Backend_Prover",
+        "params": {
+            "snark": {
+                "name": "groth16",
+                "powers_of_tau": "scripts/ptau/powersOfTau__MAX___bls12381.ptau",
+                "contribution_randomness": "Totally random bitstring"
+            }
+        }
+    },
+    "circuit_processor": {
+        "name": "Circom_Circuit_Processor",
+        "module_name": "proving_pipeline.circuit_processors.circom_circuit_processor",
+        "class_name": "Circom_Circuit_Processor",
+        "params": {
+            "optimization": "--O2",
+            "prime": "bls12381"
+        }
+    },
+    "circuit_language": {
+        "name": "Circom_Language_Utils",
+        "module_name": "proving_pipeline.language_utils.circom_language_utils",
+        "class_name": "Circom_Language_Utils",
+        "params": {
+            "circuit_header": "pragma circom 2.2.1;"
+        }
+    },
+    "merged_circuit": "MERGED_Assert_exp.circom",
+    "generated_constants_file": "generated_constants.json",
+    "instantiated_circuit": "MERGED_Assert_exp_instantiated.circom",
+    "r1cs": "MERGED_Assert_exp_instantiated.r1cs",
+    "prover_setup": "MERGED_Assert_exp_instantiated.zkey",
+    "generated_input_file": "generated_input.json",
+    "wtns": "MERGED_Assert_exp_instantiated.wtns",
+    "proof": "MERGED_Assert_exp_instantiated_proof.json",
+    "instance": "MERGED_Assert_exp_instantiated_public.json"
+}

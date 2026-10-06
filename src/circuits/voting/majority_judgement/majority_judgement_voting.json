@@ -1,0 +1,43 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/voting/majority_judgement/majority_judgement_voting.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_cand": {
+                        "maps_to": "n_cand",
+                        "among_copies": "shared"
+                    },
+                    "n_grades": {
+                        "maps_to": "n_grades",
+                        "among_copies": "shared"
+                    },
+                    "n_cand_times_n_grades": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "bits_votes": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "linearized_ballot": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+
+                    }
+                }
+            },
+            "params": {},
+            "type": [
+                "voting",
+                "majority_judgement"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "circuits": [
+        {
+            "template": "circuits/voting/multi/multi_vote_voting.circom",
+            "precedence": 0,
+            "copies_shape": "(1)",
+            "constants": {},
+            "input": {},
+            "mappings": {
+                "constants": {
+                    "n_votes": {
+                        "maps_to": "n_entries",
+                        "among_copies": "shared"
+                    },
+                    "max_votes_cand": {
+                        "maps_to": "max_votes_per_candidate",
+                        "among_copies": "shared"
+                    },
+                    "max_choices": {
+                        "maps_to": "max_choices",
+                        "among_copies": "shared"
+                    },
+                    "bits_votes": {
+                        "maps_to": "bits_votes",
+                        "among_copies": "shared"
+                    }
+                },
+                "input": {
+                    "ballot": {
+                        "maps_to": "entries",
+                        "among_copies": "shared"
+
+                    }
+                }
+            },
+            "params": {},
+            "type": [
+                "voting",
+                "multi",
+                "multi_vote"
+            ]
+        }
+    ]
+}
