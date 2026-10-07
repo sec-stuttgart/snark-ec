@@ -33,7 +33,8 @@ docker run -it --rm -v $(pwd)/results:/home/app/results zkp-benchmarks
 ### Step 3: Execute the Benchmark
 The container's entrypoint automatically drops you into a `sage -sh` shell. From the `/home/app` directory, run the benchmark script against your target test suite configuration:
 ```bash
-python src/benchmark.py bv_pointlist_borda_sw_config.json
+cd src
+python benchmark.py test_suites/min_test_all.json
 ```
 *(Note: Because you are inside the `sage -sh` environment, calling `python` automatically uses the SageMath Python interpreter).*
 
@@ -92,7 +93,7 @@ The pipeline requires a precomputed structured reference string (PTAU). Download
 ```bash
 mkdir -p src/scripts/ptau
 wget -O src/scripts/ptau/powersOfTau28_hez_final_21.ptau \
-    [https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_21.ptau](https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_21.ptau)
+    [https://circom.info/powersOfTau28_hez_final_21.ptau](https://circom.info/powersOfTau28_hez_final_21.ptau)
 ```
 
 ### Step 6: Execute the Benchmark
