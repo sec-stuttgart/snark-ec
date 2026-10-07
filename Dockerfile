@@ -62,7 +62,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 # Add ptau file 
 WORKDIR /home/app/src/scripts/ptau
 RUN wget -O powersOfTau28_hez_final_21.ptau \
-    https://circom.info/powersOfTau28_hez_final_21.ptau
+    https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_21.ptau
 
 # Setting Working directory
 WORKDIR /home/app
